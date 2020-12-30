@@ -1,6 +1,8 @@
-import {existsSync,rmSync,writeFileSync} from "fs";
+import { existsSync, rmSync, writeFileSync, mkdirSync } from "fs";
 
-export function setup(pathname,content){
-  existsSync(pathname) && rmSync(pathname);
-  writeFileSync(pathname,content);
+export function setup(dirname, filename, content) {
+    const fullpath = dirname + filename
+    mkdirSync(dirname);
+    existsSync(fullpath) && rmSync(fullpath);
+    writeFileSync(fullpath, content);
 }
