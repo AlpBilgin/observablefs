@@ -1,9 +1,11 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import { teardown } from './teardown'
 
-export function setup(dirname, filename, content) {
-    const fullpath = dirname + filename
+export function setup(dirname, filenames, content) {
     teardown(dirname);
-    mkdirSync(dirname)
-    writeFileSync(fullpath, content);
+    mkdirSync(dirname);
+    for (const filename of filenames) {
+        const fullpath = dirname + filename;
+        writeFileSync(fullpath, content);
+    }
 }
