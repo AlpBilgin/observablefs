@@ -8,7 +8,7 @@ const path = dirname + filename;
 export function testOpenfile() {
     const result = readFileObs(path);
     result.subscribe(
-        (x) => console.log(x.toString()),
+        (x) => console.log(`${path} file has content: ${x.toString()}`),
         (e) => console.error(e)
     );
 }

@@ -1,3 +1,4 @@
+import { mergeMap } from 'rxjs/operators';
 import { readDirObs } from '../../src/readDirObs'
 
 const dirname = './testdata/'
